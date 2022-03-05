@@ -1,1 +1,1 @@
-import React from "react";import ReactDOM from "react-dom";import "./popup.css";const tree = <img src="icon.png" alt="react "/>;const root = document.createElement("div");document.body.appendChild(root);ReactDOM.render(tree, root);
+import React from "react";import ReactDOM from "react-dom";import "./popup.css";const App:React.FC<{}> = () => {    return (        <div>            <img src="icon.png" alt="react " width="400"/>        </div>    )}const root = document.createElement("div");document.body.appendChild(root);ReactDOM.render(<App />, root);
