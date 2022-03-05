@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+#React Chrome Extension Boilerplate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Boilerplate for building Chrome Extensions in React and TypeScript using a simple Webpack build process.
 
-## Available Scripts
+## Getting Started
+1. `npm i` to install dependancies
+2. `npm start` to start running the fast development mode Webpack build process that bundle files into the dist folder
+3. `npm i --save-dev <package_name>` to install new packages
 
-In the project directory, you can run:
+## Loading The Chrome Extension
 
-### `npm start`
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Toggle on `Developer mode` in the top right corner
+3. Click `Load unpacked`
+4. Select the entire `dist` folder
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Production Build
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. `npm run build` to generate a minimized production build in the `dist` folder
+2. ZIP the entire `dist` folder (e.g. `dist.zip`)
+3. Publish the ZIP file on the Chrome Web Store Developer Dashboard!
 
-### `npm test`
+## Initial Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. `git init` to start a new git repo for tracking your changes, do an initial base commit with all the default files
+2. Update `package.json`, important fields include `author`, `version`, `name` and `description`
+3. Update `manifest.json`, important fields include `version`, `name` and `description`
+4. Update `webpack.commmon.js`, the title in the `getHtmlPlugins` function should be your extension name
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Default Boilerplate Notes
+- Folders get flattened, static references to images from HTML do not need to be relative (i.e. `icon.png` instead of `../static/icon.png`)
+- Importing local ts/tsx/css files should be relative, since Webpack will build a dependancy graph using these paths
+- Update the manifest file as per usual for chrome related permissions, references to files in here should also be flattened and not be relative
